@@ -1,0 +1,109 @@
+// 提示
+.el-message-box
+  margin-top: -200px
+
+// 下拉选择菜单
+.el-dropdown-menu
+  .el-dropdown-menu__item
+    font-size: 13px
+    text-align: center
+
+// dialog
+.el-dialog
+  min-width: 580px
+  margin-top: 3% !important
+
+// date组件
+.el-date-editor
+  .el-input__icon:hover
+    color: #878d99
+    cursor: pointer
+  .el-range__close-icon
+    position: absolute
+    right: 5px
+    top: 0px
+    cursor: pointer
+    &:hover
+      color: #878d99
+
+// button居中
+.el-button
+  vertical-align: middle
+
+// el-table
+.el-table
+  display: flex
+  flex-direction: column
+  height: 100%
+  .el-table__header-wrapper, .el-table__fixed, .el-table__fixed-right
+    .caret-wrapper
+      position: relative
+    thead
+      th
+        color: black
+        background-color: rgb(238, 241, 246)
+  .el-table__body-wrapper
+    height: 100%
+    overflow: hidden
+    overflow-y: auto
+    ._tag
+      font-size: 14px
+      padding: 0 10px
+    .el-table__expanded-cell
+      padding: 15px 0 45px 50px
+      p
+        display: inline-block
+        width: 33%
+        text-align: left
+        margin-top: 30px
+        vertical-align: middle
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+    .el-table__empty-block
+      width: 100% !important
+      .el-table__empty-text
+        font-size: 15px
+
+// 高德的样式
+.amap-container
+// 提示框
+  .amap-marker-label
+    transform: translateX(-50%)
+    border: 1px solid black
+    border-radius: 5px
+  .success
+    color: #1d8ce0
+  .danger
+    color: #FF4949
+
+// loading容器
+.el-loading-mask
+  z-index: 999
+
+.el-form
+  .is-success
+    .el-input__inner
+      border-color: #d8dce5 !important
+      &:focus
+        border-color: #1D8CE0 !important
+    .el-textarea__inner
+      border-color: #d8dce5 !important
+      &:focus
+        border-color: #1D8CE0 !important
+
+.el-menu--horizontal
+  .el-menu
+    min-width: 180px
+    .is-opened
+      .el-submenu__title
+        background-color: #e4e8f1 !important
+    .el-submenu__title
+      color: #303133
+      &:hover
+        background-color: #e4e8f1 !important
+    .el-menu-item
+      color: #48576a
+    .el-menu-item
+      &:hover
+        background-color: #e4e8f1

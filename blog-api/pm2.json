@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "blogApi",
+      "cwd": "/usr/local/blog",
+      "script": "start.js",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss",
+      "error_file": "/usr/local/blog/log/error.log",
+      "out_file": "/usr/local/blog/log/out.log",
+      "pid_file": "/usr/local/blog/pid/out.log",
+      "exec_mode": "fork",
+      "max_memory_restart": "1G",
+      "autorestart": true
+    }
+  ]
+}
