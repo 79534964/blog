@@ -64,8 +64,14 @@ const actions = {
             data: [{file}]
         }]);
     },
-    [types.ACT_ARTICLEARRANGE_DEL]({state, commit, rootState}, {httpFun, body: {file}}) {
-        return httpFun(rootState.api.articleArrangeDelUrl, [{type: 'String', data: [{file}]}]);
+    [types.ACT_ARTICLEARRANGE_DEL]({state, commit, rootState}, {httpFun, body: {file, img}}) {
+        return httpFun(rootState.api.articleArrangeDelUrl, [{
+            type: 'String',
+            data: [{file}]
+        }, {
+            type: 'StringToFile',
+            data: [{img}]
+        }]);
     },
     [types.ACT_ARTICLEARRANGE_IMGDEL]({state, commit, rootState}, {httpFun, body: {img}}) {
         return httpFun(rootState.api.articleArrangeImgDelUrl, [{type: 'String', data: [{img}]}]);

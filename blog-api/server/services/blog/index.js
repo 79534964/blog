@@ -1,7 +1,8 @@
 const path = require('path');
 const {Service, Interface} = require('../../decorator/service');
-const {readdir, readFile, unlink, exists, writeFile} = require('../../includes/file');
+const {readdir, readFile, unlink, exists, writeFile, rmdir} = require('../../includes/file');
 const {blogPath, nginxPath} = require('../../../config/index');
+const {emptyDir, rmEmptyDir} = require('../../includes/file/rewrite');
 const result = require('../../includes/result');
 
 @Service('blogService')
@@ -26,8 +27,10 @@ class Server {
     }
 
     @Interface
-    async delete({file}) {
+    async delete({file, img}) {
         const data = await unlink({path: `${blogPath}/${file}`});
+        await emptyDir({path: `${nginxPath}/${img}`});
+        await rmEmptyDir({path: `${nginxPath}/${img}`});
         if (data) {
             return result.success({});
         }

@@ -76,16 +76,27 @@ const stat = ({path}) => {
 
 const mkdir = ({dir}) => {
     return new Promise((resolve, reject) => {
-        fs.mkdir(dir, err => {
+        fs.mkdir(dir, (err) => {
             if (err) {
                 resolve(false);
-            } else {
-                resolve(true);
+                return;
             }
+            resolve(true);
         })
     })
 }
 
+const rmdir = ({path}) => {
+    return new Promise((resolve, reject) => {
+        fs.rmdir(path, (err) => {
+            if (err) {
+                resolve(false);
+                return;
+            }
+            resolve(true);
+        })
+    })
+}
 
 module.exports = {
     readdir,
@@ -94,5 +105,6 @@ module.exports = {
     exists,
     writeFile,
     stat,
-    mkdir
+    mkdir,
+    rmdir
 };

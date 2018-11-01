@@ -72,7 +72,7 @@
                     return;
                 }
                 this.$confirm(`是否删除 ${file}`, '提示', {type: 'warning'}).then(() => {
-                    this.$axios({actionType: 'articleArrange/act/DEL', body: {file}}).then(() => {
+                    this.$axios({actionType: 'articleArrange/act/DEL', body: {file, img: file}}).then(() => {
                         this.$message.success('删除成功');
                         this.query();
                     });
