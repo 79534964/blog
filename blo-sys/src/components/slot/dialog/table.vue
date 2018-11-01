@@ -21,5 +21,6 @@
                 height: 45px
             .el-dialog__body
                 flex: 1
+                overflow: hidden
                 padding-top: 0 !important
 </style>

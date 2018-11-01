@@ -5,7 +5,7 @@
         <div class="circle" v-show="percent!==100">
             <el-progress type="circle" :percentage="percent"></el-progress>
         </div>
-        <el-button type="text" icon="el-icon-picture-outline">图片上传</el-button>
+        <el-button style="font-size: 22px;" size="medium" type="text" icon="el-icon-picture-outline"></el-button>
     </el-upload>
 </template>
 

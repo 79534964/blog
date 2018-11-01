@@ -39,7 +39,6 @@ class Server {
                 }
             });
             form.parse(req, async (err, fields, files) => {
-                console.log(files);
                 let file = files.file[0];
                 if (fileTypeError) {
                     await unlink({path: file.path});
