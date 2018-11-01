@@ -24,7 +24,6 @@ const actions = {
         window.alert('您缺少访问权限，请联系管理员！');
         return;
       }
-      storage[radio ? 'setLocal' : 'setSession']({key: 'userInfo', value: data});
       commit('login/set/USERINFO', data);
     });
   }

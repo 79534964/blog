@@ -1,5 +1,5 @@
 const {convert} = require('../utils');
-const {result} = require('../../services/index');
+const result = require('../../includes/result');
 const {user} = require('../../../config/index');
 
 const Auth = convert(async (ctx, next) => {

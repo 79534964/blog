@@ -27,6 +27,7 @@
 <script type="text/ecmascript-6">
 
     import background from './background/background';
+    import storage from '@/common/js/storage';
 
     export default {
         data() {
@@ -51,6 +52,7 @@
                         body: this.form,
                         btnLoading: true
                     }).then(() => {
+                        storage[this.form.radio ? 'setLocal' : 'setSession']({key: 'userInfo', value: this.userInfo});
                         if (this.userInfo.menu) {
                             this.setPath();
                         }

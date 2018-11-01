@@ -50,4 +50,24 @@ class Router {
         const data = await blogService.update(ctx.request.body);
         ctx.body = data;
     };
+
+    @Post('/img')
+    @Auth
+    @Required({
+        body: ['file']
+    })
+    async img(ctx, next) {
+        const data = await blogService.img(ctx.request.body);
+        ctx.body = data;
+    };
+
+    @Post('/imgDel')
+    @Auth
+    @Required({
+        body: ['img']
+    })
+    async imgDel(ctx, next) {
+        const data = await blogService.imgDel(ctx.request.body);
+        ctx.body = data;
+    };
 };

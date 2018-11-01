@@ -84,6 +84,22 @@ const preprocess = {
         )(data);
         return body;
     },
+    StringToFile({data}) {
+        let body = {};
+        R.forEach(
+            R.mapObjIndexed((value, key) => {
+                body = R.assoc(key, R.anyPass([
+                        R.equals(''),
+                        R.equals(null),
+                        R.equals(undefined)
+                    ])(value)
+                    ? ''
+                    : `${value.split('.')[0]}`
+                )(body);
+            })
+        )(data);
+        return body;
+    },
     ArrayToString({data}) {
         let body = {};
         R.forEach(

@@ -2,7 +2,8 @@ import * as types from '../../mutation-types/article';
 
 const state = {
     list: [],
-    details: ''
+    details: '',
+    imgs: []
 };
 
 const getters = {
@@ -11,6 +12,9 @@ const getters = {
     },
     [types.GET_ARTICLEARRANGE_DETAILS]: (state) => {
         return state.details;
+    },
+    [types.GET_ARTICLEARRANGE_IMGS]: (state) => {
+        return state.imgs;
     }
 };
 
@@ -26,6 +30,14 @@ const actions = {
             data: [{file}]
         }], ({data}) => {
             commit('articleArrange/set/DETAILS', data);
+        });
+    },
+    [types.ACT_ARTICLEARRANGE_IMGS]({state, commit, rootState}, {httpFun, body: {file}}) {
+        return httpFun(rootState.api.articleArrangeImgsUrl, [{
+            type: 'StringToFile',
+            data: [{file}]
+        }], ({data}) => {
+            commit('articleArrange/set/IMGS', data);
         });
     },
     [types.ACT_ARTICLEARRANGE_ADD]({state, commit, rootState}, {
@@ -54,6 +66,9 @@ const actions = {
     },
     [types.ACT_ARTICLEARRANGE_DEL]({state, commit, rootState}, {httpFun, body: {file}}) {
         return httpFun(rootState.api.articleArrangeDelUrl, [{type: 'String', data: [{file}]}]);
+    },
+    [types.ACT_ARTICLEARRANGE_IMGDEL]({state, commit, rootState}, {httpFun, body: {img}}) {
+        return httpFun(rootState.api.articleArrangeImgDelUrl, [{type: 'String', data: [{img}]}]);
     }
 };
 
@@ -63,6 +78,9 @@ const mutations = {
     },
     [types.SET_ARTICLEARRANGE_DETAILS](state, details) {
         state.details = details;
+    },
+    [types.SET_ARTICLEARRANGE_IMGS](state, list) {
+        state.imgs = list;
     }
 };
 

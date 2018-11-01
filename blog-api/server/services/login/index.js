@@ -1,6 +1,6 @@
 const {Service, Interface} = require('../../decorator/service');
 const {user} = require('../../../config/index');
-const result = require('../base/result');
+const result = require('../../includes/result');
 
 @Service('loginService')
 class Server {

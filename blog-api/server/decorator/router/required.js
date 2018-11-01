@@ -1,6 +1,6 @@
 const R = require('ramda');
 const {convert} = require('../utils');
-const {result} = require('../../services/index');
+const result = require('../../includes/result');
 
 const Required = paramsObj => convert(async (ctx, next) => {
     let errParams = [];

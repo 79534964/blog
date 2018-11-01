@@ -1,12 +1,14 @@
 const path = require('path');
 const md5 = require('crypto').createHash('md5');
 
-let account = 'admin';
-let password = 'wzy123456';
+const account = 'admin';
+const password = 'wzy123456';
+const rootPath = '../../';
 
 module.exports = {
     port: 4001,
-    blogPath: path.resolve(__dirname, '../../hexo/source/_posts'),
+    blogPath: path.resolve(__dirname, `${rootPath}hexo/source/_posts`),
+    nginxPath: path.resolve(__dirname, `${rootPath}webapps/blog/img`),
     user: {
         account,
         password,

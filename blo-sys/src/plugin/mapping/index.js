@@ -34,5 +34,15 @@ const mapping = {
         ])(value)
             ? ''
             : R.split('.')(value)[0];
+    },
+    StringToArray(value) {
+        return R.anyPass([
+            R.equals(''),
+            R.equals(null),
+            R.equals(undefined),
+            R.equals([])
+        ])(value)
+            ? []
+            : R.map(e => window.isNaN(e) ? e : e * 1)(R.split(',')(value));
     }
 };

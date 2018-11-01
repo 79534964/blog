@@ -23,8 +23,9 @@
                 暂无数据
             </div>
             <div class="item" v-for="e in list" :key="e">
-                <slot-card-Actions>
+                <slot-card-actions>
                     <div slot="body" class="body">
+                        <buttonImg class="btn" @success="success" :file="e.split('.')[0]"></buttonImg>
                         <p>{{e}}</p>
                     </div>
                     <div slot="actions" class="actions">
@@ -38,7 +39,7 @@
                             </el-button>
                         </div>
                     </div>
-                </slot-card-Actions>
+                </slot-card-actions>
             </div>
         </div>
         <p class="footer">共 {{list.length}} 条</P>
@@ -46,6 +47,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+
+    import buttonImg from '@/components/common/button/img';
 
     export default {
         data() {
@@ -64,6 +67,10 @@
                 this.$axios({actionType: 'articleArrange/act/LIST'});
             },
             del(file) {
+                if (this.list.length < 2) {
+                    this.$message.info('最少剩余1个日志');
+                    return;
+                }
                 this.$confirm(`是否删除 ${file}`, '提示', {type: 'warning'}).then(() => {
                     this.$axios({actionType: 'articleArrange/act/DEL', body: {file}}).then(() => {
                         this.$message.success('删除成功');
@@ -72,6 +79,9 @@
                 }, () => {
                     this.$message.info('删除已取消');
                 });
+            },
+            success() {
+                this.$message.success('上传成功！');
             }
         },
         created() {
@@ -83,6 +93,9 @@
                     return (e === this.form.name || this.form.name === '') && (e.indexOf(this.form.year) !== -1 || this.form.year === '全部');
                 });
             }
+        },
+        components: {
+            buttonImg
         }
     };
 </script>
@@ -104,17 +117,21 @@
             .item
                 width: 33.33%
                 float: left
-                height: 146px
+                height: 156px
                 padding: 10px
                 box-sizing: border-box
                 .body
                     position: relative
                     padding: 15px
-                    height: 44px
+                    height: 54px
                     p
                         text-align: center
                         font-size: 25px
-                        margin-top: 9px
+                        margin-top: 20px
+                    .btn
+                        position: absolute
+                        right: 11px
+                        top: 0px
         .footer
             position: absolute
             bottom: -6px
