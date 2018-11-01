@@ -60,12 +60,14 @@
                         this.editormd = window.editormd('editormd', {
                             width: '100%',
                             height,
-                            path: './static/js/lib/'
+                            path: './static/js/lib/',
+                            onload: () => {
+                                window.setTimeout(() => {
+                                    this.editormd.setMarkdown(details);
+                                    this.loading = false;
+                                }, 500);
+                            }
                         });
-                        window.setTimeout(() => {
-                            this.editormd.setMarkdown(details);
-                            this.loading = false;
-                        }, 1000);
                     }, 2000);
                 } else {
                     this.editormd.setMarkdown(details);

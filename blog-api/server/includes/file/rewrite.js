@@ -31,6 +31,9 @@ const dirTranslate = async ({before, after}) => {
 
 const emptyDir = async ({path}) => {
     let files = await readdir({path});
+    if (!files) {
+        return true;
+    }
     await files.forEach(async (file) => {
         let filePath = `${path}/${file}`;
         let stats = await stat({path: filePath});
@@ -47,7 +50,7 @@ const rmEmptyDir = async ({path}) => {
     const echo = async (e) => {
         await rmEmptyDir({path: `${path}/${e}`});
     }
-    if (files.length > 0) {
+    if (files) {
         for (let file of files) {
             await echo(file);
         }

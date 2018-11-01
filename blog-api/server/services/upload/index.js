@@ -39,7 +39,7 @@ class Server {
                 }
             });
             form.parse(req, async (err, fields, files) => {
-                let file = files.file[0];
+                let file = files['file'][0];
                 if (fileTypeError) {
                     await unlink({path: file.path});
                     resolve(result.error({msg: '校验失败缺少token || 文件名！'}));
