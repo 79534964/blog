@@ -25,7 +25,7 @@
     name: 'notFound',
     methods: {
       goLogin() {
-        window.location.href = `http://${window.location.host}/#/login`;
+        window.location.href = `http://${window.location.host}/system/index.html`;
       }
     }
   };
