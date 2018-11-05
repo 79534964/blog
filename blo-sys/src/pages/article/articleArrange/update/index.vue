@@ -52,11 +52,15 @@
                 this.type = 'ADD';
                 this.$mapping({entity: this.form});
                 let str = `---
+
 title: 文章标题
 date: ${dateFormat(new Date(), 'yyyy-MM-dd hh:mm:ss')}
 categories: 文章分类
 tags: 文章标签
+
 ---
+
+## 文章正文标题
 `;
                 this.init(str);
             },
