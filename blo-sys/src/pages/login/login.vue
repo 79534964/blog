@@ -12,7 +12,7 @@
                     <img slot="prefix" src="./password.png"/>
                 </el-input>
                 <div class="checkbox">
-                    <el-tooltip content="勾选后七天内免登陆" placement="bottom" effect="light">
+                    <el-tooltip content="勾选后免登陆" placement="bottom" effect="light">
                         <el-checkbox v-model="form.radio">自动登陆</el-checkbox>
                     </el-tooltip>
                 </div>

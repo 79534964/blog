@@ -24,7 +24,7 @@ class Server {
 
     getUser() {
         return {
-            loginName: 'wzy',
+            loginName: '管理员',
             userToken: user.userToken,
             menu: [{
                 href: '/article',

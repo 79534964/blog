@@ -2,7 +2,7 @@
     <div class="___wrapper" ref="wrapperNode" v-loading="loading">
         <imgList ref="imgListNode"></imgList>
         <div class="input">
-            <el-input placeholder="请输入文件名称" v-model="form.file">
+            <el-input placeholder="请输入文件名称" v-model="form.file" :disabled="type === 'UPDATE'">
                 <template slot="append">.md</template>
             </el-input>
             <el-button class="btn" v-if="type === 'UPDATE'" type="text" icon="el-icon-picture" @click="img"></el-button>
