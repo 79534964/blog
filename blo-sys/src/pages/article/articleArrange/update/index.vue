@@ -19,6 +19,7 @@
 <script type="text/ecmascript-6">
 
     import imgList from '../update/imgList';
+    import {dateFormat} from '@/common/js/utils';
 
     export default {
         data() {
@@ -50,9 +51,16 @@
             add() {
                 this.type = 'ADD';
                 this.$mapping({entity: this.form});
-                this.init();
+                let str = `---
+title: 文章标题
+date: ${dateFormat(new Date(), 'yyyy-MM-dd hh:mm:ss')}
+categories: 文章分类
+tags: 文章标签
+---
+`;
+                this.init(str);
             },
-            init(details = '') {
+            init(details) {
                 if (this.editormd === null) {
                     this.loading = true;
                     window.setTimeout(() => {
