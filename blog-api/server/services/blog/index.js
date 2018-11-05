@@ -4,6 +4,7 @@ const {readdir, readFile, unlink, exists, writeFile, rmdir} = require('../../inc
 const {blogPath, nginxPath} = require('../../../config/index');
 const {emptyDir, rmEmptyDir} = require('../../includes/file/rewrite');
 const result = require('../../includes/result');
+const {hexo} = require('../../shell/pm2');
 
 @Service('blogService')
 class Server {
@@ -31,7 +32,8 @@ class Server {
         const data = await unlink({path: `${blogPath}/${file}`});
         await emptyDir({path: `${nginxPath}/${img}`});
         await rmEmptyDir({path: `${nginxPath}/${img}`});
-        if (data) {
+        const res = await hexo.reload();
+        if (data && res) {
             return result.success({});
         }
         return result.error({msg: '删除失败！'});
@@ -39,22 +41,24 @@ class Server {
 
     @Interface
     async add({file, content}) {
-        let isFlag = await exists({path: `${blogPath}/${file}`});
+        const isFlag = await exists({path: `${blogPath}/${file}`});
         if (isFlag) {
             return result.error({msg: '文件已存在！'});
         }
-        let isSuccess = await writeFile({path: `${blogPath}/${file}`, content});
-        return isSuccess ? result.success({}) : result.error({msg: '操作失败！'});
+        const isSuccess = await writeFile({path: `${blogPath}/${file}`, content});
+        const res = await hexo.reload();
+        return isSuccess && res ? result.success({}) : result.error({msg: '操作失败！'});
     }
 
     @Interface
     async update({file, content}) {
-        let isFlag = await exists({path: `${blogPath}/${file}`});
+        const isFlag = await exists({path: `${blogPath}/${file}`});
         if (!isFlag) {
             return result.error({msg: '文件不存在！'});
         }
-        let isSuccess = await writeFile({path: `${blogPath}/${file}`, content});
-        return isSuccess ? result.success({}) : result.error({msg: '操作失败！'});
+        const isSuccess = await writeFile({path: `${blogPath}/${file}`, content});
+        const res = await hexo.reload();
+        return isSuccess && res ? result.success({}) : result.error({msg: '操作失败！'});
     }
 
     @Interface
