@@ -50,7 +50,7 @@
             },
             add() {
                 this.type = 'ADD';
-                this.$mapping({entity: this.form});
+                this.$mapping({entity: this.form, data: {file: dateFormat(new Date(), 'yyyy-MM-dd')}});
                 let str = `---
 
 title: 文章标题
