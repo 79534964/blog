@@ -73,7 +73,7 @@
     background-color #fff
     z-index: 99
     top: 0
-    bottom: 20px
+    bottom: 17px
     .btn
       transition: all 0.3s cubic-bezier(.7, .3, .1, 1)
       position: absolute

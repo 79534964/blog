@@ -2,7 +2,7 @@
   <div class="___wrapper articleArrange_refer_detail" :style="`left: ${flag ? '0' : '100%'}`"
        v-loading="$store.state.loading.btnLoading">
     <el-button type="primary" class="btn" icon="el-icon-back" circle @click="$emit('close')"></el-button>
-    <el-input type="textarea" v-model="value" :readonly="true"></el-input>
+    <el-input type="textarea" v-model="value" :readonly="true" :resize="false"></el-input>
   </div>
 </template>
 
