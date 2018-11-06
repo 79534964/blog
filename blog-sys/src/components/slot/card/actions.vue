@@ -7,7 +7,7 @@
     </el-card>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
     export default {
         name: 'slot-card-actions'
     };

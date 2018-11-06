@@ -23,7 +23,7 @@
     </slot-dialog-table>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
     import dialogImg from '@/components/common/dialog/img';
 
@@ -62,8 +62,6 @@
                 });
             }
         },
-        created() {
-        },
         computed: {
             list() {
                 return this.$store.getters['articleArrange/get/IMGS'];
@@ -74,7 +72,3 @@
         }
     };
 </script>
-
-<style lang="stylus" rel="stylesheet/stylus" scoped>
-
-</style>

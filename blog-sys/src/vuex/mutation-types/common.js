@@ -33,3 +33,13 @@ export const GET_COMMON_LOCKFLAG = 'common/get/LOCKFLAG';
 
 // 执行获取lockFlag
 export const ACT_COMMON_LOCKFLAG = 'common/act/LOCKFLAG';
+
+// referList
+// 设置referList
+export const SET_COMMON_REFERLIST = 'common/set/REFERLIST';
+
+// 获取referList
+export const GET_COMMON_REFERLIST = 'common/get/REFERLIST';
+
+// 执行获取referList
+export const ACT_COMMON_REFERLIST = 'common/act/REFERLIST';

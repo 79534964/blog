@@ -4,7 +4,7 @@
   </el-button>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
   export default {
     methods: {
@@ -20,7 +20,7 @@
   };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" scoped>
   .app-header-shrink
     position: relative
     top: 2px

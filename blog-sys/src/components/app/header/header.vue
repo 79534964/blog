@@ -13,7 +13,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
     import lock from './lock/lock';
     import set from './set/set';
@@ -34,7 +34,7 @@
     };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" scoped>
     .app-header
         display: flex
         justify-content: space-between

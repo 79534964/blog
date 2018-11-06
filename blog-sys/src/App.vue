@@ -11,11 +11,11 @@
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
   export default {};
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" scoped>
   .wrapper
     height: 100%
     position: relative

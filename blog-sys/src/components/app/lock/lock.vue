@@ -25,7 +25,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
     import storage from '@/common/js/storage';
 
@@ -105,7 +105,7 @@
     };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" scoped>
     .app_lock
         position: fixed
         left: 0

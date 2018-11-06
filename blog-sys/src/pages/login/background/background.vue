@@ -4,7 +4,7 @@
   </slot-tab-tabs>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
   export default {
     name: 'login_background',
@@ -121,7 +121,7 @@
   };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" scoped>
   .__wrapper
     position: absolute
     top: 0

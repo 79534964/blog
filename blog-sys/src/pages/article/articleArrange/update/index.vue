@@ -16,7 +16,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
     import imgList from '../update/imgList';
     import {dateFormat} from '@/common/js/utils';
@@ -120,7 +120,7 @@ tags: 文章标签
 
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" scoped>
     .___wrapper
         .editormd
             margin-top: 10px

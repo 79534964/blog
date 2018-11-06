@@ -1,4 +1,4 @@
-// productGroup
+// articleArrange
 // 设置文章列表
 export const SET_ARTICLEARRANGE_LIST = 'articleArrange/set/LIST';
 // 设置文章详情

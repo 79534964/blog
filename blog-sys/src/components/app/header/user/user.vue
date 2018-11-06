@@ -2,7 +2,7 @@
     <div class="app-header-user"><img src="./user.png"/><span>{{userInfo.loginName}} </span></div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
     export default {
         computed: {
@@ -13,7 +13,7 @@
     };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" scoped>
     .app-header-user
         display: flex
         align-items: center

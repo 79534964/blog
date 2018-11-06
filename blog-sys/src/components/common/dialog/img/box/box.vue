@@ -4,7 +4,7 @@
     </el-dialog>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 
     export default {
         name: 'dialog-img-box',
