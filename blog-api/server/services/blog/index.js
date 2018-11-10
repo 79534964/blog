@@ -1,10 +1,9 @@
-const path = require('path');
 const {Service, Interface} = require('../../decorator/service');
-const {readdir, readFile, unlink, exists, writeFile, rmdir} = require('../../includes/file');
+const {readdir, readFile, unlink, exists, writeFile} = require('../../includes/file');
 const {blogPath, nginxPath} = require('../../../config/index');
-const {emptyDir, rmEmptyDir} = require('../../includes/file/rewrite');
+const {emptyDir, rmEmptyDir, dirExists, dirTranslate} = require('../../includes/file/rewrite');
 const result = require('../../includes/result');
-const {hexo} = require('../../shell/pm2');
+const {pm2} = require('../../shell');
 
 @Service('blogService')
 class Server {
@@ -32,8 +31,10 @@ class Server {
         const data = await unlink({path: `${blogPath}/${file}`});
         await emptyDir({path: `${nginxPath}/${img}`});
         await rmEmptyDir({path: `${nginxPath}/${img}`});
-        const res = await hexo.reload();
-        if (data && res) {
+        await emptyDir({path: `${blogPath}/${img}`});
+        await rmEmptyDir({path: `${blogPath}/${img}`});
+        pm2.hexo.reload();
+        if (data) {
             return result.success({});
         }
         return result.error({msg: '删除失败！'});
@@ -46,8 +47,8 @@ class Server {
             return result.error({msg: '文件已存在！'});
         }
         const isSuccess = await writeFile({path: `${blogPath}/${file}`, content});
-        const res = await hexo.reload();
-        return isSuccess && res ? result.success({}) : result.error({msg: '操作失败！'});
+        pm2.hexo.reload();
+        return isSuccess ? result.success({}) : result.error({msg: '操作失败！'});
     }
 
     @Interface
@@ -57,13 +58,13 @@ class Server {
             return result.error({msg: '文件不存在！'});
         }
         const isSuccess = await writeFile({path: `${blogPath}/${file}`, content});
-        const res = await hexo.reload();
-        return isSuccess && res ? result.success({}) : result.error({msg: '操作失败！'});
+        pm2.hexo.reload();
+        return isSuccess ? result.success({}) : result.error({msg: '操作失败！'});
     }
 
     @Interface
     async img({file}) {
-        const data = await readdir({path: path.resolve(nginxPath, `./${file}`)});
+        const data = await readdir({path: `${nginxPath}/${file}`});
         if (data) {
             return result.success({data});
         }
@@ -72,10 +73,30 @@ class Server {
 
     @Interface
     async imgDel({img}) {
-        const data = await unlink({path: path.resolve(nginxPath, `./${img}`)});
+        const data = await unlink({path: `${nginxPath}/${img}`});
         if (data) {
             return result.success({});
         }
         return result.error({msg: '删除失败！'});
+    }
+
+    @Interface
+    async backups() {
+        const list = await readdir({path: nginxPath});
+        for (let file of list) {
+            const dir = await readdir({path: `${nginxPath}/${file}`});
+            if (dir) {
+                await dirExists({dir: `${blogPath}/${file}`});
+                for (let img of dir) {
+                    dirTranslate({
+                        before: `${nginxPath}/${file}/${img}`,
+                        after: `${blogPath}/${file}/${img}`,
+                        type: 'copy'
+                    });
+                }
+            }
+        }
+        pm2.git.reload();
+        return result.success({});
     }
 }

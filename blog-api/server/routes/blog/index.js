@@ -70,4 +70,11 @@ class Router {
         const data = await blogService.imgDel(ctx.request.body);
         ctx.body = data;
     };
+
+    @Post('/backups')
+    @Auth
+    async backups(ctx, next) {
+        const data = await blogService.backups();
+        ctx.body = data;
+    };
 };

@@ -27,3 +27,5 @@ export const ACT_ARTICLEARRANGE_UPDATE = 'articleArrange/act/UPDATE';
 export const ACT_ARTICLEARRANGE_DEL = 'articleArrange/act/DEL';
 // 执行删除文章操作
 export const ACT_ARTICLEARRANGE_IMGDEL = 'articleArrange/act/IMGDEL';
+// 执行一键备份
+export const ACT_ARTICLEARRANGE_BACKUPS = 'articleArrange/act/BACKUPS';

@@ -10,7 +10,8 @@ const state = {
     articleArrangeUpdateUrl: 'blog/update',
     articleArrangeDelUrl: 'blog/delete',
     articleArrangeImgsUrl: 'blog/img',
-    articleArrangeImgDelUrl: 'blog/imgDel'
+    articleArrangeImgDelUrl: 'blog/imgDel',
+    articleArrangeBackupsUrl: 'blog/backups'
 };
 
 export default {

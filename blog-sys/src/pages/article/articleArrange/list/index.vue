@@ -2,8 +2,9 @@
   <div class="___wrapper">
     <slot-input-title>
       <div class="header">
+        <el-button class="backups" type="text" @click="backups">一键备份</el-button>
         <el-select v-model="form.name" filterable clearable placeholder="文件名称搜索">
-          <el-option v-for="item in list" :key="item" :label="item"
+          <el-option v-for="item in queryList" :key="item" :label="item"
                      :value="item">
           </el-option>
         </el-select>
@@ -33,7 +34,9 @@
               <el-button icon="el-icon-edit" @click="update(e)">修改</el-button>
             </div>
             <div>
-              <el-button :disabled="referList.includes(e)" style="padding: 0; margin: 10px 20px;" icon="el-icon-view" @click="refer($event, e)">参考</el-button>
+              <el-button :disabled="referList.includes(e)" style="padding: 0; margin: 10px 20px;" icon="el-icon-view"
+                         @click="refer($event, e)">参考
+              </el-button>
             </div>
             <div>
               <el-button icon="el-icon-delete" @click="del(e)">删除</el-button>
@@ -85,6 +88,15 @@
       },
       success() {
         this.$message.success('上传成功！');
+      },
+      backups() {
+        this.$confirm('备份期间无法操作，是否继续', '提示', {type: 'warning'}).then(() => {
+          this.$axios({actionType: 'articleArrange/act/BACKUPS'}).then(() => {
+            this.$message.success('备份成功');
+          });
+        }, () => {
+          this.$message.info('取消备份');
+        });
       }
     },
     created() {
@@ -93,11 +105,16 @@
     computed: {
       list() {
         return this.$store.getters['articleArrange/get/LIST'].filter((e) => {
-          return (e === this.form.name || this.form.name === '') && (e.indexOf(this.form.year) !== -1 || this.form.year === '全部');
+          return e.indexOf('md') !== -1 && (e === this.form.name || this.form.name === '') && (e.indexOf(this.form.year) !== -1 || this.form.year === '全部');
+        });
+      },
+      queryList() {
+        return this.$store.getters['articleArrange/get/LIST'].filter((e) => {
+          return e.indexOf('md') !== -1;
         });
       },
       referList() {
-          return this.$store.getters['common/get/REFERLIST'];
+        return this.$store.getters['common/get/REFERLIST'];
       }
     },
     components: {
@@ -108,6 +125,12 @@
 
 <style lang="stylus" scoped>
   .___wrapper
+    .header
+      .backups
+        position: absolute
+        left: -20px
+        top: 0
+        margin-left: 0
     .tab
       margin-top: 15px
     .content

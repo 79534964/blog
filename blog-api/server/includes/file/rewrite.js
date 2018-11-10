@@ -17,7 +17,7 @@ const dirExists = async ({dir}) => {
     return mkdirStatus;
 }
 
-const dirTranslate = async ({before, after}) => {
+const dirTranslate = async ({before, after, type = 'translate'}) => {
     let data = await readFile({path: before});
     if (!data) {
         return false;
@@ -26,7 +26,10 @@ const dirTranslate = async ({before, after}) => {
     if (!bool) {
         return false;
     }
-    return await unlink({path: before});
+    if (type === 'translate') {
+        return await unlink({path: before});
+    }
+    return true;
 }
 
 const emptyDir = async ({path}) => {

@@ -49,11 +49,11 @@ class Server {
                     resolve(result.error({msg: '上传失败！'}));
                     return;
                 }
-                let filePath = path.resolve(nginxPath, `./${fileName}`);
+                let filePath = `${nginxPath}/${fileName}`;
                 await dirExists({dir: filePath});
                 let bool = await dirTranslate({
                     before: file.path,
-                    after: path.resolve(filePath, `./${file.originalFilename}`)
+                    after: `${filePath}/${file.originalFilename}`
                 });
                 resolve(bool ? result.success({data: '上传成功'}) : resolve(result.error({msg: '上传失败！'})));
             });
