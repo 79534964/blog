@@ -1,6 +1,6 @@
 const {Service, Interface} = require('../../decorator/service');
 const {readdir, readFile, unlink, exists, writeFile} = require('../../includes/file');
-const {blogPath, nginxPath} = require('../../../config/index');
+const {blogPath, nginxPath, backupsPath} = require('../../../config/index');
 const {emptyDir, rmEmptyDir, dirExists, dirTranslate} = require('../../includes/file/rewrite');
 const result = require('../../includes/result');
 const {pm2} = require('../../shell');
@@ -31,8 +31,8 @@ class Server {
         const data = await unlink({path: `${blogPath}/${file}`});
         await emptyDir({path: `${nginxPath}/${img}`});
         await rmEmptyDir({path: `${nginxPath}/${img}`});
-        await emptyDir({path: `${blogPath}/${img}`});
-        await rmEmptyDir({path: `${blogPath}/${img}`});
+        await emptyDir({path: `${backupsPath}/${img}`});
+        await rmEmptyDir({path: `${backupsPath}/${img}`});
         pm2.hexo.reload();
         if (data) {
             return result.success({});
@@ -82,15 +82,16 @@ class Server {
 
     @Interface
     async backups() {
+        await dirExists({dir: `${backupsPath}/img`});
         const list = await readdir({path: nginxPath});
         for (let file of list) {
             const dir = await readdir({path: `${nginxPath}/${file}`});
             if (dir) {
-                await dirExists({dir: `${blogPath}/${file}`});
+                await dirExists({dir: `${backupsPath}/img/${file}`});
                 for (let img of dir) {
                     dirTranslate({
                         before: `${nginxPath}/${file}/${img}`,
-                        after: `${blogPath}/${file}/${img}`,
+                        after: `${backupsPath}/img/${file}/${img}`,
                         type: 'copy'
                     });
                 }

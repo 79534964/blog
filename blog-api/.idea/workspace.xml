@@ -51,9 +51,9 @@
     <session id="28423383">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.0" value="15" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.18" value="1" />
@@ -63,13 +63,13 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="27" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="5" />
-          <entry key="js" value="418" />
+          <entry key="js" value="430" />
           <entry key="json" value="9" />
           <entry key="log" value="11" />
           <entry key="md" value="6" />
@@ -83,21 +83,21 @@
           <entry key="CSS" value="5" />
           <entry key="Image" value="4" />
           <entry key="JSON" value="9" />
-          <entry key="JavaScript" value="418" />
+          <entry key="JavaScript" value="430" />
           <entry key="PLAIN_TEXT" value="18" />
           <entry key="TypeScript" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="4869" />
+          <entry key="js" value="4896" />
           <entry key="log" value="9" />
           <entry key="sh" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="4869" />
+          <entry key="JavaScript" value="4896" />
           <entry key="PLAIN_TEXT" value="56" />
         </counts>
       </usages-collector>
@@ -109,7 +109,26 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/env/production.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/env/development.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -152,10 +171,8 @@
         <option value="$PROJECT_DIR$/server/routes/upload/index.html.js" />
         <option value="$PROJECT_DIR$/server/routes/upload/index.js" />
         <option value="$PROJECT_DIR$/config/index.js" />
-        <option value="$PROJECT_DIR$/config/env/development.js" />
         <option value="$PROJECT_DIR$/server/includes/result/index.js" />
         <option value="$PROJECT_DIR$/server/includes/file/file.js" />
-        <option value="$PROJECT_DIR$/config/env/production.js" />
         <option value="$PROJECT_DIR$/server/decorator/router/auth.js" />
         <option value="$PROJECT_DIR$/server/decorator/router/required.js" />
         <option value="$PROJECT_DIR$/webapps/blog/img/2018-10-11/12.ts" />
@@ -197,6 +214,8 @@
         <option value="$PROJECT_DIR$/server/shell/index.js" />
         <option value="$PROJECT_DIR$/server/shell/pm2/git.js" />
         <option value="$PROJECT_DIR$/server/services/blog/index.js" />
+        <option value="$PROJECT_DIR$/config/env/production.js" />
+        <option value="$PROJECT_DIR$/config/env/development.js" />
       </list>
     </option>
   </component>
@@ -216,7 +235,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="739" />
     <option name="width" value="1185" />
     <option name="height" value="1047" />
@@ -239,6 +258,78 @@
               <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
               <item name="blog-api" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="env" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="hexo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="hexo" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="hexo" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="hexo" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="webapps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="webapps" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-api" type="462c0819:PsiDirectoryNode" />
+              <item name="webapps" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -259,16 +350,16 @@
     <property name="ts.external.directory.path" value="D:\WebStorm 2018.2.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jack\Desktop\blog\blog-api\hexo\source\_posts" />
+      <recent name="C:\Users\Jack\Desktop\blog\blog-api\server\services" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jack\Desktop\blog\blog-api\hexo\source" />
       <recent name="C:\Users\Jack\Desktop\blog\blog-api\server\includes\result" />
       <recent name="C:\Users\Jack\Desktop\blog\blog-api\server\decorator\router" />
       <recent name="C:\Users\Jack\Desktop\blog\blog-api\server\decorator\service" />
       <recent name="C:\Users\Jack\Desktop\blog\hexo\source" />
-      <recent name="C:\Users\Jack\Desktop\blog\hexo" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Jack\Desktop\blog\blog-api\hexo\source\_posts" />
-      <recent name="C:\Users\Jack\Desktop\blog\blog-api\server\services" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -322,14 +413,16 @@
       <workItem from="1541854266723" duration="303000" />
       <workItem from="1541854638665" duration="21426000" />
       <workItem from="1541877118446" duration="247000" />
+      <workItem from="1541939813782" duration="1368000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99224000" />
+    <option name="totallyTimeSpent" value="100592000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" sideWeight="0.50054765" side_tool="true" weight="0.24973601" />
@@ -473,20 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/env/production.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/env/development.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="5" selection-start-line="3" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/includes/process/index.js" />
     <entry file="file://$PROJECT_DIR$/git.sh" />
     <entry file="file://$PROJECT_DIR$/start.js">
@@ -555,8 +634,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/services/blog/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        <state relative-caret-position="475">
+          <caret line="89" column="52" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/env/production.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/env/development.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
         </state>
       </provider>
     </entry>
