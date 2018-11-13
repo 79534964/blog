@@ -5,8 +5,7 @@
                  icon="el-icon-tickets"
                  :disabled="!referList.length"></el-button>
     </el-badge>
-    <el-button v-else @click="open" class="btn" type="primary"
-               icon="el-icon-close"></el-button>
+    <el-button v-else @click="open" class="btn" type="primary" icon="el-icon-close"></el-button>
     <div class="ball-container">
       <div v-for="(ball,index) in balls" :key="index">
         <transition name="drop" @before-enter="beforeDrop" @enter="dropping" @after-enter="afterDrop">

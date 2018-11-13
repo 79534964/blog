@@ -54,7 +54,7 @@
                 let str = `---
 
 title: 文章标题
-date: ${dateFormat(new Date(), 'yyyy-MM-dd hh:mm:ss')}
+date: ${dateFormat(new Date(), 'yyyy-MM-dd')}
 categories: 文章分类
 tags: 文章标签
 
