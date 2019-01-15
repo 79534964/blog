@@ -2,11 +2,11 @@ import storage from '@/common/js/storage';
 import NProgress from 'nprogress';
 import Router from 'vue-router';
 
-import notFound from '@/pages/notFound/notFound';
+import notFound from '@/pages/notFound';
 
-import login from '@/pages/login/login';
+import login from '@/pages/login';
 
-import article from '@/pages/article/article';
+import article from '@/pages/article';
 import articleArrange from '@/pages/article/articleArrange';
 
 const router = new Router({

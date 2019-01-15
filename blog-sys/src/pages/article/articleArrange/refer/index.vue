@@ -13,53 +13,55 @@
   import btn from './btn';
   import list from './list';
   import detail from './detail';
+  import {Vuex, Translate} from '@/decorator';
 
-  export default {
-    props: {
+  @Vuex([{
+    type: 'set',
+    name: '$VreferList',
+    action: ['common/get/REFERLIST', 'common/set/REFERLIST']
+  }])
+  class Vue {
+    constructor() {
+      Translate(Vue, this);
+    }
+
+    props = {
       top: {
         type: Number
       }
-    },
-    data() {
+    };
+    data = () => {
       return {
         file: '',
         showFlag: false,
         listFlag: false
       };
-    },
-    methods: {
+    };
+    methods = {
       add({file, event}) {
         this.file = file;
         this.$refs.btnNode.drop(event.target);
       },
       finish() {
-        if (!this.referList.includes(this.file)) {
-          let list = this.referList.slice(0);
+        if (!this.$VreferList.includes(this.file)) {
+          let list = this.$VreferList.slice(0);
           list.push(this.file);
-          this.referList = list;
+          this.$VreferList = list;
         }
       },
       open(file) {
         this.listFlag = !this.listFlag;
         this.$refs.detailNode.query(file);
       }
-    },
-    computed: {
-      referList: {
-        get() {
-          return this.$store.getters['common/get/REFERLIST'];
-        },
-        set(value) {
-          this.$store.commit('common/set/REFERLIST', value);
-        }
-      }
-    },
-    components: {
+    };
+    components = {
       btn,
       list,
       detail
-    }
+    };
   };
+
+  export default new Vue();
 </script>
 
 <style lang="stylus" scoped>

@@ -26,7 +26,7 @@
       <div class="item" v-for="e in list" :key="e">
         <slot-card-actions>
           <div slot="body" class="body">
-            <buttonImg class="btn" @success="success" :file="e.split('.')[0]"></buttonImg>
+            <base-button-img class="btn" @success="success" :file="e.split('.')[0]"></base-button-img>
             <p>{{e}}</p>
           </div>
           <div slot="actions" class="actions">
@@ -34,7 +34,7 @@
               <el-button icon="el-icon-edit" @click="update(e)">修改</el-button>
             </div>
             <div>
-              <el-button :disabled="referList.includes(e)" style="padding: 0; margin: 10px 20px;" icon="el-icon-view"
+              <el-button :disabled="$VreferList.includes(e)" style="padding: 0; margin: 10px 20px;" icon="el-icon-view"
                          @click="refer($event, e)">参考
               </el-button>
             </div>
@@ -50,37 +50,56 @@
 </template>
 
 <script>
+  import {Vuex, Axios, Translate} from '@/decorator';
 
-  import buttonImg from '@/components/common/button/img';
+  @Vuex([{
+    type: 'get',
+    name: '$Vlist',
+    action: 'articleArrange/get/LIST'
+  }, {
+    type: 'get',
+    name: '$VreferList',
+    action: 'common/get/REFERLIST'
+  }])
+  @Axios([{
+    name: '$Alist',
+    action: 'articleArrange/act/LIST'
+  }, {
+    name: '$Adel',
+    action: 'articleArrange/act/DEL'
+  }, {
+    name: '$Abackups',
+    action: 'articleArrange/act/BACKUPS'
+  }])
+  class Vue {
+    constructor() {
+      Translate(Vue, this);
+    }
 
-  export default {
-    data() {
+    data = () => {
       return {
         form: {
           name: '',
           year: '全部'
         }
       };
-    },
-    methods: {
+    };
+    methods = {
       update(file) {
         this.$emit('update', file);
-      },
-      query() {
-        this.$axios({actionType: 'articleArrange/act/LIST'});
       },
       del(file) {
         if (this.list.length < 2) {
           this.$message.info('最少剩余1个日志');
           return;
         }
-        this.$confirm(`是否删除 ${file}`, '提示', {type: 'warning'}).then(() => {
-          this.$axios({actionType: 'articleArrange/act/DEL', body: {file, img: file}}).then(() => {
-            this.$message.success('删除成功');
-            this.query();
-          });
-        }, () => {
-          this.$message.info('删除已取消');
+        this.$ele.confirm.init.call(this, {
+          point: `是否删除 ${file}?`,
+          success: () => {
+            this.$Adel({body: {file, img: file}}).then(() => {
+              this.query();
+            });
+          }
         });
       },
       refer(event, file) {
@@ -90,37 +109,34 @@
         this.$message.success('上传成功！');
       },
       backups() {
-        this.$confirm('备份期间无法操作，是否继续', '提示', {type: 'warning'}).then(() => {
-          this.$axios({actionType: 'articleArrange/act/BACKUPS'}).then(() => {
-            this.$message.success('备份成功');
-          });
-        }, () => {
-          this.$message.info('取消备份');
+        this.$ele.confirm.init.call(this, {
+          point: '备份期间无法操作，是否继续?',
+          success: () => {
+            this.$Abackups();
+          }
         });
+      },
+      query() {
+        this.$Alist();
       }
-    },
-    created() {
+    };
+    created = function () {
       this.query();
-    },
-    computed: {
+    };
+    computed = {
       list() {
-        return this.$store.getters['articleArrange/get/LIST'].filter((e) => {
+        return this.$Vlist.filter((e) => {
           return e.indexOf('md') !== -1 && (e === this.form.name || this.form.name === '') && (e.indexOf(this.form.year) !== -1 || this.form.year === '全部');
         });
       },
       queryList() {
-        return this.$store.getters['articleArrange/get/LIST'].filter((e) => {
+        return this.$Vlist.filter((e) => {
           return e.indexOf('md') !== -1;
         });
-      },
-      referList() {
-        return this.$store.getters['common/get/REFERLIST'];
       }
-    },
-    components: {
-      buttonImg
-    }
+    };
   };
+  export default new Vue();
 </script>
 
 <style lang="stylus" scoped>
@@ -159,7 +175,7 @@
             margin-top: 20px
           .btn
             position: absolute
-            right: 11px
+            right: 1px
             top: 0px
     .footer
       position: absolute

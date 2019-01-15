@@ -20,14 +20,14 @@
   import update from './update';
   import refer from './refer';
 
-  export default {
-    data() {
+  class Vue {
+    data = () => {
       return {
         active: 'list',
         label: ''
       };
-    },
-    methods: {
+    };
+    methods = {
       update(file) {
         this.active = 'update';
         this.label = file;
@@ -45,11 +45,12 @@
         this.active = 'list';
         this.$refs.listNode.query();
       }
-    },
-    components: {
+    };
+    components = {
       list,
       update,
       refer
-    }
+    };
   };
+  export default new Vue();
 </script>

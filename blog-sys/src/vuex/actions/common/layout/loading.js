@@ -6,28 +6,28 @@ const state = {
 };
 
 const getters = {
-  [types.GET_LOADING_LOADING]: (state) => {
+  [types.GET_COMMON_LOADING]: (state) => {
     return state.loading;
   },
-  [types.GET_LOADING_BTNLOADING]: (state) => {
+  [types.GET_COMMON_BTNLOADING]: (state) => {
     return state.btnLoading;
   }
 };
 
 const actions = {
-  [types.ACT_LOADING_LOADING]({state, commit, rootState}, {flag}) {
-    commit('loading/set/LOADING', flag);
+  [types.ACT_COMMON_LOADING]({state, commit, rootState}, beal) {
+    commit('common/set/LOADING', beal);
   },
-  [types.ACT_LOADING_BTNLOADING]({state, commit, rootState}, {flag}) {
-    commit('loading/set/BTNLOADING', flag);
+  [types.ACT_COMMON_BTNLOADING]({state, commit, rootState}, beal) {
+    commit('common/set/BTNLOADING', beal);
   }
 };
 
 const mutations = {
-  [types.SET_LOADING_LOADING](state, beal) {
+  [types.SET_COMMON_LOADING](state, beal) {
     state.loading = beal;
   },
-  [types.SET_LOADING_BTNLOADING](state, beal) {
+  [types.SET_COMMON_BTNLOADING](state, beal) {
     state.btnLoading = beal;
   }
 };

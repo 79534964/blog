@@ -1,18 +1,18 @@
 // loading
 // 设置loading
-export const SET_LOADING_LOADING = 'loading/set/LOADING';
+export const SET_COMMON_LOADING = 'common/set/LOADING';
 // 设置btnLoading
-export const SET_LOADING_BTNLOADING = 'loading/set/BTNLOADING';
+export const SET_COMMON_BTNLOADING = 'common/set/BTNLOADING';
 
 // 获取loading
-export const GET_LOADING_LOADING = 'loading/get/LOADING';
+export const GET_COMMON_LOADING = 'common/get/LOADING';
 // 获取btnLoading
-export const GET_LOADING_BTNLOADING = 'loading/get/BTNLOADING';
+export const GET_COMMON_BTNLOADING = 'common/get/BTNLOADING';
 
 // 执行设置loading
-export const ACT_LOADING_LOADING = 'loading/act/LOADING';
+export const ACT_COMMON_LOADING = 'common/act/LOADING';
 // 执行设置btnLoading
-export const ACT_LOADING_BTNLOADING = 'loading/act/BTNLOADING';
+export const ACT_COMMON_BTNLOADING = 'common/act/BTNLOADING';
 
 // menuFlag
 // 设置menuFlag
